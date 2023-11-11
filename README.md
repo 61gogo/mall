@@ -212,3 +212,39 @@ mall
 [Apache License 2.0](https://github.com/macrozheng/mall/blob/master/LICENSE)
 
 Copyright (c) 2018-2023 macrozheng
+
+
+
+
+
+如果您要使用Docker Hub URL配置Docker Maven插件，可以按照以下示例进行配置：
+
+```xml
+<configuration>
+  <images>
+    <image>
+      <name>{镜像名称}</name>
+      <build>
+        <!-- 其他配置 -->
+      </build>
+      <registry>
+        <url>{Docker Hub URL}</url>
+        <username>{用户名}</username>
+        <password>{密码}</password>
+      </registry>
+    </image>
+  </images>
+</configuration>
+```
+
+在上面的示例中，将`{Docker Hub URL}`替换为实际的Docker Hub URL，例如`https://index.docker.io/v1/`。如果您使用的是Docker Hub的默认URL，则可以使用该值。
+
+此外，还需要提供与Docker Hub相关的认证信息。将`{用户名}`和`{密码}`替换为您在Docker Hub上的凭据，以便插件可以进行身份验证并将镜像推送到Docker Hub。
+
+请注意，Docker Hub URL和认证信息是可选的，如果您不提供它们，插件将默认使用Docker Hub的公共仓库。
+
+根据您的项目需求和Docker Hub的配置，您还可以使用其他配置选项来进一步定制插件行为。
+
+请确保将占位符替换为实际的值，并根据您的项目需求进行适当的配置。
+
+请参考Docker Maven插件的官方文档和示例，以获取更多关于配置Docker Hub URL和认证信息的详细信息。
